@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <cstdlib>
+#include <ctime>
 #include "Goat.h"
 using namespace std;
 
@@ -29,9 +31,41 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    // Create list of goats
+    list<Goat> trip;
+
+    // Main menu loop
+    do {
+        int choice = main_menu();
+        
+        
+
+        again = (choice != 4);
+    }
+    while (again);
+
 
 
 
     return 0;
 }
 
+// ***** FUNCTION DEFINITIONS *****
+
+int main_menu() {
+    cout << "*** GOAT MANAGER 3001 ***\n";
+    cout << "[1] Add a goat\n";
+    cout << "[2] Delete a goat\n";
+    cout << "[3] List goats\n";
+    cout << "[4] Quit\n";
+    cout << "Choice --> ";
+
+    int choice;
+    cin >> choice;
+
+    while (choice < 1 || choice > 4) {
+        cout << "Invalid choice. Try again: ";
+        cin >> choice;
+    }
+    return choice;
+}
